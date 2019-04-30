@@ -1,0 +1,95 @@
+name: flutter_responsive
+description: A new Flutter application.
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_screenutil: ^0.5.2
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+
+  fonts:
+  - family: Rubik-Black
+    fonts:
+    - asset: fonts/Rubik-Black.ttf
+
+  - family: Rubik-BlackItalic
+    fonts:
+    - asset: fonts/Rubik-BlackItalic.ttf
+
+  - family: Rubik-Bold
+    fonts:
+    - asset: fonts/Rubik-Bold.ttf
+
+  - family: Rubik-Bold
+    fonts:
+    - asset: fonts/Rubik-Bold.ttf
+
+  - family: Rubik-BoldItalic
+    fonts:
+    - asset: fonts/Rubik-BoldItalic.ttf
+
+  - family: Rubik-Italic
+    fonts:
+    - asset: fonts/Rubik-Italic.ttf
+
+  - family: Rubik-Light
+    fonts:
+    - asset: fonts/Rubik-Light.ttf
+
+  - family: Rubik-LightItalic
+    fonts:
+    - asset: fonts/Rubik-LightItalic.ttf
+
+  - family: Rubik-Medium
+    fonts:
+    - asset: fonts/Rubik-Medium.ttf
+
+  - family: Rubik-MediumItalic
+    fonts:
+    - asset: fonts/Rubik-MediumItalic.ttf
+
+  - family: Rubik-Regular
+    fonts:
+    - asset: fonts/Rubik-Regular.ttf
+
+  assets:
+  - assets/
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
