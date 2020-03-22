@@ -4,7 +4,7 @@ import 'package:flutter_responsive/components/custom_text_field.dart';
 import 'package:flutter_responsive/components/login_component.dart';
 import 'package:flutter_responsive/components/logo_widget.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/screen_util.dart';
+import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/strings.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
 import 'package:flutter_responsive/utils/validator.dart';
@@ -19,8 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   String _email = "";
   String _password = "";
-
-  bool _screenUtilActive = true;
 
   final _loginFormKey = GlobalKey<FormState>();
 
@@ -41,15 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  setScreenSize() {
-    if (!_screenUtilActive)
-      Constant.setScreenAwareConstant(context);
-    else
-      Constant.setDefaultSize(context);
-    setState(() {
-      _screenUtilActive = !_screenUtilActive;
-    });
-  }
+  _login() {}
 
   @override
   Widget build(BuildContext context) {
@@ -68,12 +58,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   Center(
                     child: AppLogoWidget(
-                      margin: EdgeInsets.only(top: Constant.sizeXXXL),
-                      padding: Constant.spacingAllSmall,
+                      margin: EdgeInsets.only(top: Sizes.s100),
+                      padding: Sizes.spacingAllSmall,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: Constant.screenWidthTenth),
+                    padding: EdgeInsets.symmetric(horizontal: Sizes.s100),
                     child: Text(
                       AppStrings.appName,
                       style: TextStyles.appName,
@@ -81,30 +71,28 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Container(
-                    height: Constant.sizeMedium,
+                    height: Sizes.s20,
                   ),
                   Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: Constant.sizeExtraSmall, horizontal: Constant.screenWidthTenth),
+                    padding: EdgeInsets.symmetric(vertical: Sizes.s5, horizontal: Sizes.s100),
                     child: Text(
                       AppStrings.loginTitle,
                       style: TextStyles.loginTitle,
                     ),
                   ),
                   Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: Constant.sizeExtraSmall, horizontal: Constant.screenWidthTenth),
+                    padding: EdgeInsets.symmetric(vertical: Sizes.s10, horizontal: Sizes.s100),
                     child: Text(
                       AppStrings.loginSubTitle,
                       style: TextStyles.loginSubTitle,
                     ),
                   ),
                   Container(
-                    height: Constant.sizeMedium,
+                    height: Sizes.s20,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Constant.screenWidthTenth,
+                      horizontal: Sizes.s100,
                     ),
                     child: AppTextFormField(
                       focusNode: _emailFocusNode,
@@ -118,11 +106,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Container(
-                    height: Constant.sizeLarge,
+                    height: Sizes.s40,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Constant.screenWidthTenth,
+                      horizontal: Sizes.s100,
                     ),
                     child: AppTextFormField(
                       focusNode: _passwordFocusNode,
@@ -133,23 +121,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       icon: Icons.lock,
                       obscureText: true,
                       onSaved: (value) => _password = value.trim(),
-                      onFieldSubmitted: (_) => setScreenSize(),
+                      onFieldSubmitted: (_) => _login(),
                     ),
                   ),
                   Container(
-                    height: Constant.sizeLarge,
+                    height: Sizes.s40,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Constant.screenWidthTenth,
+                      horizontal: Sizes.s100,
                     ),
                     child: AppButton(
-                      onTap: () => setScreenSize(),
+                      onTap: _login,
                       text: AppLabels.Login,
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: Constant.screenWidthFifth),
+                    margin: EdgeInsets.symmetric(vertical: Sizes.s50),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

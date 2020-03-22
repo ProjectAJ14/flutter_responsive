@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/screen_util.dart';
+import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
 
 class AppButton extends StatelessWidget {
   final GestureTapCallback onTap;
   final String text;
   final BorderRadius _borderRadius = BorderRadius.all(
-    Radius.circular(Constant.sizeSmall),
+    Radius.circular(Sizes.s5),
   );
 
   final bool enabled;
@@ -24,7 +24,7 @@ class AppButton extends StatelessWidget {
       borderRadius: _borderRadius,
       onTap: enabled ? onTap : () {},
       child: Container(
-        padding: EdgeInsets.all(Constant.sizeMedium),
+        padding: EdgeInsets.all(Sizes.s15),
         child: Center(
           child: Text(
             text,

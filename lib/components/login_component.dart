@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive/utils/screen_util.dart';
+import 'package:flutter_responsive/utils/sizes.dart';
 
 class BackgroundImageWidget extends StatelessWidget {
   final String image;
@@ -46,12 +46,12 @@ class IndicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? Constant.defaultIndicatorHeight,
-      width: width ?? Constant.defaultIndicatorWidth,
+      height: height ?? Sizes.defaultIndicatorHeight,
+      width: width ?? Sizes.defaultIndicatorHeight,
       child: Container(
         decoration: BoxDecoration(
           color: color ?? Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(height ?? Constant.defaultIndicatorHeight)),
+          borderRadius: BorderRadius.all(Radius.circular(height ?? Sizes.defaultIndicatorHeight)),
         ),
       ),
     );

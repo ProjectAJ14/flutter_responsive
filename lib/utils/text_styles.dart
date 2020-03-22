@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/screen_util.dart';
+import 'package:flutter_responsive/utils/sizes.dart';
 
 class FontFamily {
   static String black = "Rubik-Black";

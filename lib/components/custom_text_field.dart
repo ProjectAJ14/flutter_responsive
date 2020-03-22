@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/screen_util.dart';
+import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -43,14 +43,14 @@ class AppTextFormField extends StatelessWidget {
           border: Border.all(
             color: AppColors.primary,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(Constant.sizeSmall))),
-      padding: EdgeInsets.all(Constant.sizeMedium),
+          borderRadius: BorderRadius.all(Radius.circular(Sizes.s5))),
+      padding: EdgeInsets.all(Sizes.s15),
       child: TextFormField(
         focusNode: focusNode,
         decoration: InputDecoration(
           icon: Icon(
             icon ?? Icons.email,
-            size: Constant.texIconSize,
+            size: Sizes.texIconSize,
           ),
           hintText: hintText,
           hintStyle: TextStyles.labelStyle,

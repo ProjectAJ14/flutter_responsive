@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/utils/assets.dart';
-import 'package:flutter_responsive/utils/screen_util.dart';
+import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/strings.dart';
 
 class AppLogoWidget extends StatelessWidget {
@@ -17,11 +17,11 @@ class AppLogoWidget extends StatelessWidget {
       tag: AppStrings.appName,
       child: Container(
         margin: margin ?? EdgeInsets.zero,
-        padding: padding ?? Constant.spacingAllSmall,
+        padding: padding ?? Sizes.s10,
         child: Image(
           image: AssetImage(image ?? Assets.logo),
-          height: size ?? Constant.defaultImageHeight,
-          width: size ?? Constant.defaultImageHeight,
+          height: size ?? Sizes.defaultImageHeight,
+          width: size ?? Sizes.defaultImageHeight,
           fit: BoxFit.contain,
         ),
       ),
