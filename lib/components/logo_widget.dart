@@ -17,7 +17,7 @@ class AppLogoWidget extends StatelessWidget {
       tag: AppStrings.appName,
       child: Container(
         margin: margin ?? EdgeInsets.zero,
-        padding: padding ?? Sizes.s10,
+        padding: padding ?? EdgeInsets.all(Sizes.s10),
         child: Image(
           image: AssetImage(image ?? Assets.logo),
           height: size ?? Sizes.defaultImageHeight,

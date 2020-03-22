@@ -4,6 +4,8 @@ import 'package:flutter_responsive/components/custom_text_field.dart';
 import 'package:flutter_responsive/components/login_component.dart';
 import 'package:flutter_responsive/components/logo_widget.dart';
 import 'package:flutter_responsive/utils/colors.dart';
+import 'package:flutter_responsive/utils/logs.dart';
+import 'package:flutter_responsive/utils/methods.dart';
 import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/strings.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
@@ -20,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String _email = "";
   String _password = "";
 
-  final _loginFormKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   FocusNode _emailFocusNode;
   FocusNode _passwordFocusNode;
@@ -39,7 +41,12 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  _login() {}
+  _login() {
+    if (!isFormValid(_formKey)) return;
+    setFocus(context);
+    appLogs('_email : $_email');
+    appLogs('_password : $_password');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         key: _scaffoldKey,
         body: Form(
-          key: _loginFormKey,
+          key: _formKey,
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -63,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: Sizes.s100),
+                    padding: EdgeInsets.symmetric(horizontal: Sizes.s40),
                     child: Text(
                       AppStrings.appName,
                       style: TextStyles.appName,
@@ -74,14 +81,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: Sizes.s20,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: Sizes.s5, horizontal: Sizes.s100),
+                    padding: EdgeInsets.symmetric(vertical: Sizes.s5, horizontal: Sizes.s40),
                     child: Text(
                       AppStrings.loginTitle,
                       style: TextStyles.loginTitle,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: Sizes.s10, horizontal: Sizes.s100),
+                    padding: EdgeInsets.symmetric(vertical: Sizes.s10, horizontal: Sizes.s40),
                     child: Text(
                       AppStrings.loginSubTitle,
                       style: TextStyles.loginSubTitle,
@@ -92,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Sizes.s100,
+                      horizontal: Sizes.s40,
                     ),
                     child: AppTextFormField(
                       focusNode: _emailFocusNode,
@@ -102,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       textInputAction: TextInputAction.next,
                       icon: Icons.email,
                       onSaved: (value) => _email = value.trim(),
-                      onFieldSubmitted: (_) => FocusScope.of(context).requestFocus(_passwordFocusNode),
+                      onFieldSubmitted: (_) => setFocus(context, focusNode: _passwordFocusNode),
                     ),
                   ),
                   Container(
@@ -110,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Sizes.s100,
+                      horizontal: Sizes.s40,
                     ),
                     child: AppTextFormField(
                       focusNode: _passwordFocusNode,
@@ -129,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Sizes.s100,
+                      horizontal: Sizes.s40,
                     ),
                     child: AppButton(
                       onTap: _login,

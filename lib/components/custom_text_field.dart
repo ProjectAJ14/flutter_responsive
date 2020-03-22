@@ -44,7 +44,7 @@ class AppTextFormField extends StatelessWidget {
             color: AppColors.primary,
           ),
           borderRadius: BorderRadius.all(Radius.circular(Sizes.s5))),
-      padding: EdgeInsets.all(Sizes.s15),
+      padding: EdgeInsets.all(Sizes.s8),
       child: TextFormField(
         focusNode: focusNode,
         decoration: InputDecoration(
