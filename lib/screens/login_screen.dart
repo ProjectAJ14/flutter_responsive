@@ -4,12 +4,11 @@ import 'package:flutter_responsive/components/custom_text_field.dart';
 import 'package:flutter_responsive/components/login_component.dart';
 import 'package:flutter_responsive/components/logo_widget.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/logs.dart';
 import 'package:flutter_responsive/utils/methods.dart';
-import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/strings.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
 import 'package:flutter_responsive/utils/validator.dart';
+import 'package:ns_utils/src.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -17,7 +16,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalObjectKey<ScaffoldState>('LoginScreen');
+  GlobalKey<ScaffoldState> _scaffoldKey =
+      new GlobalObjectKey<ScaffoldState>('LoginScreen');
 
   String _email = "";
   String _password = "";
@@ -42,10 +42,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   _login() {
-    if (!isFormValid(_formKey)) return;
-    setFocus(context);
-    appLogs('_email : $_email');
-    appLogs('_password : $_password');
+    Sizes.initialized = !Sizes.initialized;
+    FontSizes.initialized = !FontSizes.initialized;
+    setState(() {});
+//    if (!isFormValid(_formKey)) return;
+//    setFocus(context);
+//    appLogs('_email : $_email');
+//    appLogs('_password : $_password');
   }
 
   @override
@@ -66,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Center(
                     child: AppLogoWidget(
                       margin: EdgeInsets.only(top: Sizes.s100),
-                      padding: Sizes.spacingAllSmall,
+                      padding: Sizes.defaultSpace,
                     ),
                   ),
                   Container(
@@ -81,14 +84,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: Sizes.s20,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: Sizes.s5, horizontal: Sizes.s40),
+                    padding: EdgeInsets.symmetric(
+                        vertical: Sizes.s5, horizontal: Sizes.s40),
                     child: Text(
                       AppStrings.loginTitle,
                       style: TextStyles.loginTitle,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: Sizes.s10, horizontal: Sizes.s40),
+                    padding: EdgeInsets.symmetric(
+                        vertical: Sizes.s10, horizontal: Sizes.s40),
                     child: Text(
                       AppStrings.loginSubTitle,
                       style: TextStyles.loginSubTitle,
@@ -109,7 +114,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       textInputAction: TextInputAction.next,
                       icon: Icons.email,
                       onSaved: (value) => _email = value.trim(),
-                      onFieldSubmitted: (_) => setFocus(context, focusNode: _passwordFocusNode),
+                      onFieldSubmitted: (_) =>
+                          setFocus(context, focusNode: _passwordFocusNode),
                     ),
                   ),
                   Container(
@@ -148,9 +154,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        IndicatorWidget(
-                          color: AppColors.primary,
-                        ),
+                        if (Sizes.initialized)
+                          IndicatorWidget(
+                            color: AppColors.primary,
+                          ),
                       ],
                     ),
                   ),

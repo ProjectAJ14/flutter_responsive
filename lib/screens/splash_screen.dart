@@ -4,26 +4,21 @@ import 'package:flutter_responsive/components/login_component.dart';
 import 'package:flutter_responsive/components/logo_widget.dart';
 import 'package:flutter_responsive/screens/login_screen.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/routes.dart';
-import 'package:flutter_responsive/utils/sizes.dart';
+import 'package:ns_utils/src.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with AfterLayoutMixin<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(milliseconds: 1000), () {
-      AppRoutes.makeFirst(context, LoginScreen());
-    });
-  }
-
+class _SplashScreenState extends State<SplashScreen>
+    with AfterLayoutMixin<SplashScreen> {
   @override
   void afterFirstLayout(BuildContext context) {
-    Sizes.setScreenAwareConstant(context);
+    Sizes.initScreenAwareSizes(context);
+    Future.delayed(Duration(milliseconds: 1000), () {
+      context.makeFirst(LoginScreen());
+    });
   }
 
   @override

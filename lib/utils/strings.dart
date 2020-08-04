@@ -23,7 +23,8 @@ class AppStrings {
 
   static const String otpSubTitle = "Your phone number";
 
-  static const String enterOTPMessage = "Enter the 4 digit code sent to your phone";
+  static const String enterOTPMessage =
+      "Enter the 4 digit code sent to your phone";
 
   static const String resendOTPMessage = "I have a problem. Resend OTP";
 

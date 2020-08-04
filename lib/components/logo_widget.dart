@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/utils/assets.dart';
-import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/strings.dart';
+import 'package:ns_utils/utils/sizes.dart';
 
 class AppLogoWidget extends StatelessWidget {
   final double size;
@@ -9,7 +9,9 @@ class AppLogoWidget extends StatelessWidget {
   final EdgeInsetsGeometry margin;
   final EdgeInsetsGeometry padding;
 
-  const AppLogoWidget({Key key, this.margin, this.padding, this.size, this.image}) : super(key: key);
+  const AppLogoWidget(
+      {Key key, this.margin, this.padding, this.size, this.image})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +19,11 @@ class AppLogoWidget extends StatelessWidget {
       tag: AppStrings.appName,
       child: Container(
         margin: margin ?? EdgeInsets.zero,
-        padding: padding ?? EdgeInsets.all(Sizes.s10),
+        padding: padding ?? Sizes.smallSpace,
         child: Image(
           image: AssetImage(image ?? Assets.logo),
-          height: size ?? Sizes.defaultImageHeight,
-          width: size ?? Sizes.defaultImageHeight,
+          height: size ?? Sizes.s100,
+          width: size ?? Sizes.s100,
           fit: BoxFit.contain,
         ),
       ),
@@ -33,12 +35,13 @@ class Test extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 10),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width / 10),
       child: Text(
         AppStrings.appName,
         style: TextStyle(
           fontFamily: 'Rubik-Bold',
-          fontSize: FontSize.s26,
+          fontSize: FontSizes.s26,
           color: Color(0xFF008482),
           shadows: [
             Shadow(

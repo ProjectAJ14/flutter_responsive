@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/sizes.dart';
+import 'package:ns_utils/utils/sizes.dart';
 
 class FontFamily {
   static String black = "Rubik-Black";
@@ -18,7 +18,7 @@ class FontFamily {
 class TextStyles {
   static TextStyle get snackBarText => TextStyle(
         fontFamily: FontFamily.medium,
-        fontSize: FontSize.s15,
+        fontSize: FontSizes.s15,
         color: Colors.white,
         letterSpacing: 1.4,
         inherit: false,
@@ -26,7 +26,7 @@ class TextStyles {
 
   static TextStyle get appName => TextStyle(
         fontFamily: FontFamily.bold,
-        fontSize: FontSize.s26,
+        fontSize: FontSizes.s26,
         color: AppColors.primary,
         shadows: [
           Shadow(
@@ -52,7 +52,7 @@ class TextStyles {
 
   static TextStyle get editText => TextStyle(
         fontFamily: FontFamily.regular,
-        fontSize: FontSize.s16,
+        fontSize: FontSizes.s16,
         color: Colors.black,
         inherit: false,
         textBaseline: TextBaseline.alphabetic,
@@ -61,35 +61,35 @@ class TextStyles {
 
   static TextStyle get labelStyle => TextStyle(
         fontFamily: FontFamily.regular,
-        fontSize: FontSize.s16,
+        fontSize: FontSizes.s16,
         color: Colors.grey,
         inherit: false,
       );
 
   static TextStyle get errorStyle => TextStyle(
         fontFamily: FontFamily.light,
-        fontSize: FontSize.s12,
+        fontSize: FontSizes.s12,
         color: Colors.red,
         inherit: false,
       );
 
   static TextStyle get buttonText => TextStyle(
         fontFamily: FontFamily.medium,
-        fontSize: FontSize.s15,
+        fontSize: FontSizes.s15,
         color: Colors.white,
         inherit: false,
       );
 
   static TextStyle get loginTitle => TextStyle(
         fontFamily: FontFamily.bold,
-        fontSize: FontSize.s24,
+        fontSize: FontSizes.s24,
         color: Colors.black,
         inherit: false,
       );
 
   static TextStyle get loginSubTitle => TextStyle(
         fontFamily: FontFamily.regular,
-        fontSize: FontSize.s14,
+        fontSize: FontSizes.s14,
         color: Colors.grey,
         inherit: false,
       );

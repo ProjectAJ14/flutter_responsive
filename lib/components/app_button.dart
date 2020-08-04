@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
+import 'package:ns_utils/utils/sizes.dart';
 
 class AppButton extends StatelessWidget {
   final GestureTapCallback onTap;

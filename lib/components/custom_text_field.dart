@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_responsive/utils/colors.dart';
-import 'package:flutter_responsive/utils/sizes.dart';
 import 'package:flutter_responsive/utils/text_styles.dart';
+import 'package:ns_utils/utils/sizes.dart';
 
 class AppTextFormField extends StatelessWidget {
   final FormFieldSetter<String> onSaved;
@@ -50,7 +50,7 @@ class AppTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           icon: Icon(
             icon ?? Icons.email,
-            size: Sizes.texIconSize,
+            size: Sizes.s25,
           ),
           hintText: hintText,
           hintStyle: TextStyles.labelStyle,
@@ -63,7 +63,10 @@ class AppTextFormField extends StatelessWidget {
 //        textAlign: TextAlign.center,
         inputFormatters: (maxLength != null)
             ? obscureText
-                ? [LengthLimitingTextInputFormatter(maxLength), WhitelistingTextInputFormatter(RegExp("[0-9]"))]
+                ? [
+                    LengthLimitingTextInputFormatter(maxLength),
+                    WhitelistingTextInputFormatter(RegExp("[0-9]"))
+                  ]
                 : [LengthLimitingTextInputFormatter(maxLength)]
             : [],
         onSaved: onSaved,
